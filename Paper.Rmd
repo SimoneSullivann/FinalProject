@@ -1,5 +1,5 @@
 ---
-title: "Lakers Ticket Sales: 2013-202"
+title: "Lakers Ticket Sales: 2010-2022"
 author: "Christian Alfano, Simone Sullivan, Holden Flynn"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
@@ -22,15 +22,9 @@ library(scales)
 library(stargazer)
 ```
 
-# Hello!
-
-This is an inline equation, where we can include things like $\Delta$ and $y=mx+b$. We can also have expressions on their own line:
-
 $$
 \begin{aligned}
-f(x) &= \lim_{x\rightarrow 10} \frac{\frac{d}{dx}(x^2-5x-50)}{\frac{d}{dx}(x-10)} \\
-&\stackrel{H}{=} \lim_{x\rightarrow 10} 2x+5 \\
-&= 2(10)-5 = \boxed{15}
+f(x) &= x^2 + x +1 \\
 \end{aligned}
 $$
 
@@ -75,9 +69,13 @@ stargazer(model, type="latex", header=FALSE)
 
 # Data Visualization
 
-Thuis is thius because whatever
+The analysis of Lakers ticket sales between the year 2010 and 2022 reveals distinctive trends influenced by a variety of factors including team performance, player popularity, economic conditions, and COVID-19.
 
-```{r plot, fig.cap="Data of stuff", fig.align="center", fig.width=4, fig.height=3}
+Key Findings: Ticket sales increased from 2010 to 2015. Within those six years, ticket sales reached their peak in 2015 with 99 million tickets sold. The stretch of increasing sales in this data set begins right after the Lakers won the NBA finals in 2009 and 2010. During this period the Lakers had key players such as Kobe Bryant that increased sales and attracted fans to the stadium. They lost the Western conference semifinals in 2011 and 2012 followed by loosing the first round of the Western Conference in 2013 which caused a decrease in ticket sales those years. After 2010, the Lakers fell out of playoffs between the years 2014 through 2019. The data within this period shows fluctuating ticket sales which can most likely be attributed to poor team performance, lack of fan engagement, and slowed economic growth. However, in 2018 ticket sales reached an all time high of 104 million which can be largely attributed to LeBron James signing on that year. Additionally, the Lakers were also losing post game profits which they were previously attaining from 2010 to 2015. Going into 2020, the Lakers won the NBA finals, but due to COVID-19 their profits hit an all time low of 10 million. This is the lowest profit reported between the years of 2010 and 2022. From 2021 to 2022, the Lakers were recovering from the pandemic but reached 102 million in sales in 2021. This is most likely due to newly lifted pandemic restrictions, player popularity, and coming off of a 2020 finals win. Profits remained relatively high in 2022 with 99 million in sales.
+
+Quadratic Analysis: A quadratic regression was used considering the data captures a parabolic shape. Quadratic regressions are more flexible than linear in that they can accommodate curved patterns without added complexity making it the most suitable choice for analyzing ticket sales data.
+
+```{r plot, fig.cap="Data of 201-2022 Data", fig.align="center", fig.width=4, fig.height=3}
 # Graph of data, where x is years and y is sales
 ggplot(data, aes(x=year, y=sales)) +
 	# Real data
