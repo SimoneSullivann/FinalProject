@@ -22,15 +22,21 @@ library(scales)
 library(stargazer)
 ```
 
+## Equation
+
+$y=ax^2 + bx + c$, where "a" cannot equal 0
+
 $$
-\begin{aligned}
-f(x) &= x^2 + x +1 \\
-\end{aligned}
+f(x) = 34.3^2 + 7.9x -0.3
 $$
 
-# Importing Data
+### Coefficients
 
-Now, let's read some data from our CSV.
+$a: 34.318604395604396$ (Quadratic Coefficient): - This coefficient determines the curvature of the parabola. A negative value (as in this case) means the parabola opens downwards. It indicates that the ticket sales increase up to a certain point and then start to decrease as the year increases further. The magnitude of $a$ affects how "sharp" or "flat" the curve is.
+
+$b: 7.8816$ (Linear Coefficient): - This coefficient is associated with the linear term x. It influences the slope of the curve and, in combination with $a$, determines the location of the vertex (the highest or lowest point of the parabola). The value of b affects how steeply the sales rise or fall each year before reaching the turning point.
+
+$c:-0.2722$ (Constant Term): - This is the constant term or the y-intercept. It represents the estimated ticket sales when x(the year) is zero. In the context of this model, it doesn't have a direct interpretative meaning since the year zero is far outside the range of our data. In summary, these coefficients together shape the quadratic curve that best fits the given data on Lakers ticket sales from 2010 to 2022, reflecting how sales vary with time within this period.
 
 ```{r data}
 # Read data from CSV file
@@ -38,12 +44,11 @@ Now, let's read some data from our CSV.
 data <- read.csv("data/LakersTicketData.csv")
 ```
 
+\newpage
+
 # Data Summary
 
 ```{r summary}
-# Display the first few rows of the data
-knitr::kable(head(data))
-
 # Display a summary of the data
 knitr::kable(summary(data))
 ```
@@ -75,11 +80,12 @@ Key Findings: Ticket sales increased from 2010 to 2015. Within those six years, 
 
 Quadratic Analysis: A quadratic regression was used considering the data captures a parabolic shape. Quadratic regressions are more flexible than linear in that they can accommodate curved patterns without added complexity making it the most suitable choice for analyzing ticket sales data.
 
-```{r plot, fig.cap="Data of 201-2022 Data", fig.align="center", fig.width=4, fig.height=3}
+```{r plot, fig.cap="Data of 2010-2022 Data", fig.align="center", fig.width=6, fig.height=4}
 # Graph of data, where x is years and y is sales
 ggplot(data, aes(x=year, y=sales)) +
 	# Real data
 	geom_point() +
+  scale_x_continuous(breaks = scales::pretty_breaks(n = 10), limits = c(min(data$year), max(data$year)))+
   
 	# Regression lines
 	geom_line(data=data.predict, aes(x=year, y=fit), color="limegreen") +
