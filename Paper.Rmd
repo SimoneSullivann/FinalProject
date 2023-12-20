@@ -27,16 +27,20 @@ library(stargazer)
 $y=ax^2 + bx + c$, where "a" cannot equal 0
 
 $$
-f(x) = 34.3^2 + 7.9x -0.3
+f(x) = 34.3x^2 + 7.9x -0.3
 $$
+Here, x represents the year, and y is the ticket sales in millions. This quadratic equation follows the equation y=a^2 + bx + c. This equation can be used to estimate ticket sales for a given year within this range, but please note that predictions far outside the range of the original data (2010-2022) might not be accurate due to the nature of extrapolation in regression models.
 
 ### Coefficients
 
-$a: 34.318604395604396$ (Quadratic Coefficient): - This coefficient determines the curvature of the parabola. A negative value (as in this case) means the parabola opens downwards. It indicates that the ticket sales increase up to a certain point and then start to decrease as the year increases further. The magnitude of $a$ affects how "sharp" or "flat" the curve is.
+$a: 34.318604395604396$ (Quadratic Coefficient): 
+- This coefficient determines the curvature of the parabola. A negative value (as in this case) means the parabola opens downwards. It indicates that the ticket sales increase up to a certain point and then start to decrease as the year increases further. The magnitude of $a$ affects how "sharp" or "flat" the curve is.
 
-$b: 7.8816$ (Linear Coefficient): - This coefficient is associated with the linear term x. It influences the slope of the curve and, in combination with $a$, determines the location of the vertex (the highest or lowest point of the parabola). The value of b affects how steeply the sales rise or fall each year before reaching the turning point.
+$b: 7.8816$ (Linear Coefficient): 
+- This coefficient is associated with the linear term x. It influences the slope of the curve and, in combination with $a$, determines the location of the vertex (the highest or lowest point of the parabola). The value of b affects how steeply the sales rise or fall each year before reaching the turning point.
 
-$c:-0.2722$ (Constant Term): - This is the constant term or the y-intercept. It represents the estimated ticket sales when x(the year) is zero. In the context of this model, it doesn't have a direct interpretative meaning since the year zero is far outside the range of our data. In summary, these coefficients together shape the quadratic curve that best fits the given data on Lakers ticket sales from 2010 to 2022, reflecting how sales vary with time within this period.
+$c:-0.2722$ (Constant Term): 
+- This is the constant term or the y-intercept. It represents the estimated ticket sales when x (the year) is zero. In the context of this model, it doesn't have a direct interpretative meaning since the year zero is far outside the range of our data. In summary, these coefficients together shape the quadratic curve that best fits the given data on Lakers ticket sales from 2010 to 2022, reflecting how sales vary with time within this period.
 
 ```{r data}
 # Read data from CSV file
